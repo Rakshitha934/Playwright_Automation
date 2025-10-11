@@ -2,7 +2,7 @@ import { test as base } from '@playwright/test'
 import fs from 'fs'
 
 
-const users = JSON.parse(fs.readFileSync('test-data/users.json', 'utf-8'))
+// const users = JSON.parse(fs.readFileSync('test-data/users.json', 'utf-8'))
 
 /*
  * @typedef {import('@playwright/test').Page} Page
