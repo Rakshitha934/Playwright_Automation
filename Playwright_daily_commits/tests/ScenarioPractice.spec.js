@@ -49,7 +49,7 @@ test("Scenario:4 Open a sample dropdown page ,Select a value using .selectOption
     await page.locator('#dropdown').selectOption('Option 1');
 })
 
-test('Go to a form page,Check a checkbox and select a radio button Verify they’re checked', async ({ page }, testInfo) => {
+test('Scenario:5 Go to a form page,Check a checkbox and select a radio button Verify they’re checked', async ({ page }, testInfo) => {
 
     await page.goto('https://demoqa.com/', { waitUntil: 'domcontentloaded' });
     const cards = page.locator('.category-cards .card')
@@ -65,6 +65,23 @@ test('Go to a form page,Check a checkbox and select a radio button Verify they�
 
     await expect(page).toHaveURL(/forms/)
     console.log(testInfo.title);
+})
+
+test.only("Scenario:7. Get All Links from a Page ,Open any page,Collect and print all link texts or hrefs", async ({ page }) => {
+
+    await page.goto('https://www.freecodecamp.org/news/practice-web-scraping-safely/?utm_source=chatgpt.com', { waitUntil: 'domcontentloaded' });
+
+    const links = await page.locator('a').all()
+
+    console.log(`Total links found is ${links.length}`);
+
+    for (const link of links) {
+
+        console.log(await link.getAttribute('href'));
+        console.log(await link.textContent());
+    }
+
+
 })
 
 
